@@ -14,6 +14,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Microsoft.IdentityModel.Clients.ActiveDirectory;
 
 namespace AuthenticationSample.UWP
 {
@@ -30,6 +31,8 @@ namespace AuthenticationSample.UWP
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
+
+            AuthenticationManager.SetParameters(new PlatformParameters(PromptBehavior.Auto, false));
         }
 
         /// <summary>

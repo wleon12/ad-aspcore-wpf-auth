@@ -8,6 +8,42 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
 
+        <Button Grid.Column="0" Content="Login" Click="{x:Bind ViewModel.LoginAsync}" />
+        <Button Grid.Column="1" Content="Logout" Click="{x:Bind ViewModel.LogoutAsync}" />
+        <Button Grid.Column="2" Content="Query API" Click="{x:Bind ViewModel.QueryApiAsync}" />
+        
+        <StackPanel Grid.Row="1" Grid.ColumnSpan="3" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock>
+                <Run Text="Is connected : " />
+                <Run Text="{x:Bind ViewModel.IsConnected}" />
+            </TextBlock>
+            <TextBlock>
+                <Run Text="First name :" />
+                <Run Text="{x:Bind ViewModel.FirstName}" />
+            </TextBlock>
+            <TextBlock>
+                <Run Text="Last name :" />
+                <Run Text="{x:Bind ViewModel.LastName}" />
+            </TextBlock>
+            <TextBlock>
+                <Run Text="Email :" />
+                <Run Text="{x:Bind ViewModel.Email}" />
+            </TextBlock>
+            <TextBlock>
+                <Run Text="API response :" />
+                <Run Text="{x:Bind ViewModel.ApiResponse}" />
+            </TextBlock>
+        </StackPanel>
     </Grid>
 </Page>
