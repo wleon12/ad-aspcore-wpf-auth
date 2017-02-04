@@ -19,30 +19,30 @@
             <RowDefinition />
         </Grid.RowDefinitions>
 
-        <Button Grid.Column="0" Content="Login" Click="{x:Bind ViewModel.LoginAsync}" />
-        <Button Grid.Column="1" Content="Logout" Click="{x:Bind ViewModel.LogoutAsync}" />
-        <Button Grid.Column="2" Content="Query API" Click="{x:Bind ViewModel.QueryApiAsync}" />
+        <Button Grid.Column="0" Content="Login" Click="{x:Bind ViewModel.LoginAsync}" HorizontalAlignment="Center" />
+        <Button Grid.Column="1" Content="Logout" Click="{x:Bind ViewModel.LogoutAsync}" HorizontalAlignment="Center" />
+        <Button Grid.Column="2" Content="Query API" Click="{x:Bind ViewModel.QueryApiAsync}" HorizontalAlignment="Center" />
         
         <StackPanel Grid.Row="1" Grid.ColumnSpan="3" VerticalAlignment="Center" HorizontalAlignment="Center">
             <TextBlock>
                 <Run Text="Is connected : " />
-                <Run Text="{x:Bind ViewModel.IsConnected}" />
+                <Run Text="{x:Bind ViewModel.IsConnected, Mode=OneWay}" />
             </TextBlock>
             <TextBlock>
                 <Run Text="First name :" />
-                <Run Text="{x:Bind ViewModel.FirstName}" />
+                <Run Text="{x:Bind ViewModel.FirstName, Mode=OneWay}" />
             </TextBlock>
             <TextBlock>
                 <Run Text="Last name :" />
-                <Run Text="{x:Bind ViewModel.LastName}" />
+                <Run Text="{x:Bind ViewModel.LastName, Mode=OneWay}" />
             </TextBlock>
             <TextBlock>
                 <Run Text="Email :" />
-                <Run Text="{x:Bind ViewModel.Email}" />
+                <Run Text="{x:Bind ViewModel.Email, Mode=OneWay}" />
             </TextBlock>
             <TextBlock>
                 <Run Text="API response :" />
-                <Run Text="{x:Bind ViewModel.ApiResponse}" />
+                <Run Text="{x:Bind ViewModel.ApiResponse, Mode=OneWay}" />
             </TextBlock>
         </StackPanel>
     </Grid>

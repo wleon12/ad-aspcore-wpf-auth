@@ -130,7 +130,7 @@ namespace AuthenticationSample.ViewModels
             }
             else
             {
-                ApiResponse = $"The API replied : HTTP{(int)response.StatusCode} - {Enum.GetName(typeof(HttpStatusCode), response.StatusCode)}";
+                ApiResponse = $"The API replied : HTTP {(int)response.StatusCode} - {Enum.GetName(typeof(HttpStatusCode), response.StatusCode)}";
             }
         }
 

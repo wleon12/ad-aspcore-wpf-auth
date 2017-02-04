@@ -63,7 +63,7 @@ namespace AuthenticationSample
         private async Task<string> GetAccessTokenAsync()
         {
             var authContext = new AuthenticationContext(_authority);
-            var cachedToken = authContext.TokenCache.ReadItems().FirstOrDefault(t => t.Authority == _authority && t.ClientId == _clientId && t.Resource == _resource && t.ExpiresOn > DateTimeOffset.Now);
+            var cachedToken = authContext.TokenCache.ReadItems().FirstOrDefault(t => t.Authority == _authority && t.ClientId == _clientId && t.Resource == _resource);
             if (cachedToken != null)
             {
                 return cachedToken.AccessToken;
