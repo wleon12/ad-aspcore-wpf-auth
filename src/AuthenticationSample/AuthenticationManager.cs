@@ -23,6 +23,9 @@ namespace AuthenticationSample
             _resource = resource;
             _clientId = clientId;
             _returnUri = returnUri;
+
+            var authContext = new AuthenticationContext(_authority);
+            authContext.TokenCache.Clear();
         }
 
         public static void SetParameters(IPlatformParameters parameters)
@@ -56,6 +59,7 @@ namespace AuthenticationSample
             var accessToken = await GetAccessTokenAsync();
 
             var client = new HttpClient();
+            client.BaseAddress = new Uri(Configuration.ApiUri);
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
             return client;
         }
@@ -63,12 +67,14 @@ namespace AuthenticationSample
         private async Task<string> GetAccessTokenAsync()
         {
             var authContext = new AuthenticationContext(_authority);
-            var cachedToken = authContext.TokenCache.ReadItems().FirstOrDefault(t => t.Authority == _authority && t.ClientId == _clientId && t.Resource == _resource);
-            if (cachedToken != null)
+            var tokens = authContext.TokenCache.ReadItems();//.FirstOrDefault(t => t.Authority == _authority && t.ClientId == _clientId && t.Resource == _resource);
+            foreach (var t in tokens)
             {
-                return cachedToken.AccessToken;
+                if (t.Authority == _authority && t.ClientId == _clientId && t.Resource == _resource)
+                {
+                    return t.AccessToken;
+                }
             }
-
             var uri = new Uri(_returnUri);
             var authResult = await authContext.AcquireTokenAsync(_resource, _clientId, uri, _parameters);
 

@@ -37,6 +37,11 @@ namespace AuthenticationSample.WebAPI
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
+            app.UseCors(a =>
+            {
+                a.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
+            });
+
             app.UseMvc();
         }
     }

@@ -121,7 +121,7 @@ namespace AuthenticationSample.ViewModels
         public async Task QueryApiAsync()
         {
             var httpClient = await _authenticationManager.CreateHttpClientAsync();
-            var response = await httpClient.GetAsync(new Uri($"{Configuration.ApiUri}/values"));
+            var response = await httpClient.GetAsync(new Uri("values", UriKind.Relative));
 
             if (response.IsSuccessStatusCode)
             {
@@ -130,7 +130,7 @@ namespace AuthenticationSample.ViewModels
             }
             else
             {
-                ApiResponse = $"The API replied : HTTP {(int)response.StatusCode} - {Enum.GetName(typeof(HttpStatusCode), response.StatusCode)}";
+                ApiResponse = $"HTTP {(int)response.StatusCode} - {Enum.GetName(typeof(HttpStatusCode), response.StatusCode)}";
             }
         }
 
