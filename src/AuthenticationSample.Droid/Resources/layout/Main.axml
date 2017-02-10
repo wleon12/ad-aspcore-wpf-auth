@@ -2,12 +2,45 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    >
-<Button  
-    android:id="@+id/MyButton"
-    android:layout_width="match_parent" 
-    android:layout_height="wrap_content" 
-    android:text="@string/Hello"
-    />
+    android:layout_height="match_parent">
+  <Button
+      android:id="@+id/LoginButton"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:text="@string/Login" />
+  <Button
+      android:id="@+id/LogoutButton"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:text="@string/Logout" />
+  <Button
+      android:id="@+id/QueryApiButton"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:text="@string/QueryApi" />
+  <TextView
+      android:text="Is connected :"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/IsConnectedTextView" />
+  <TextView
+      android:text="First name :"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/FirstNameTextView" />
+  <TextView
+      android:text="Last name :"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/LastNameTextView" />
+  <TextView
+      android:text="Email :"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/EmailTextView" />
+  <TextView
+      android:text="API response :"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/ApiResponseTextView" />
 </LinearLayout>

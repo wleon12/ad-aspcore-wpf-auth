@@ -120,7 +120,7 @@ namespace AuthenticationSample.ViewModels
 
         public async Task QueryApiAsync()
         {
-            var httpClient = await _authenticationManager.CreateHttpClientAsync();
+            var httpClient = _authenticationManager.CreateHttpClient();
             var response = await httpClient.GetAsync(new Uri("values", UriKind.Relative));
 
             if (response.IsSuccessStatusCode)

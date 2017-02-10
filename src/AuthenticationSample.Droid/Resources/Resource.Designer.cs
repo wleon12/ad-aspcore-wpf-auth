@@ -63,11 +63,32 @@ namespace AuthenticationSample.Droid
 		public partial class Id
 		{
 			
+			// aapt resource value: 0x7f050007
+			public const int ApiResponseTextView = 2131034119;
+			
+			// aapt resource value: 0x7f050006
+			public const int EmailTextView = 2131034118;
+			
+			// aapt resource value: 0x7f050004
+			public const int FirstNameTextView = 2131034116;
+			
+			// aapt resource value: 0x7f050003
+			public const int IsConnectedTextView = 2131034115;
+			
+			// aapt resource value: 0x7f050005
+			public const int LastNameTextView = 2131034117;
+			
 			// aapt resource value: 0x7f050000
-			public const int MyButton = 2131034112;
+			public const int LoginButton = 2131034112;
 			
 			// aapt resource value: 0x7f050001
-			public const int agentWebView = 2131034113;
+			public const int LogoutButton = 2131034113;
+			
+			// aapt resource value: 0x7f050002
+			public const int QueryApiButton = 2131034114;
+			
+			// aapt resource value: 0x7f050008
+			public const int agentWebView = 2131034120;
 			
 			static Id()
 			{
@@ -105,7 +126,13 @@ namespace AuthenticationSample.Droid
 			public const int ApplicationName = 2130968576;
 			
 			// aapt resource value: 0x7f040001
-			public const int Hello = 2130968577;
+			public const int Login = 2130968577;
+			
+			// aapt resource value: 0x7f040002
+			public const int Logout = 2130968578;
+			
+			// aapt resource value: 0x7f040003
+			public const int QueryApi = 2130968579;
 			
 			static String()
 			{

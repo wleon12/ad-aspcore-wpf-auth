@@ -14,6 +14,7 @@ namespace AuthenticationSample
         private static string _clientId;
         private static string _returnUri;
         private static IPlatformParameters _parameters;
+        private string _accessToken;
 
         public static UserInfo UserInfo { get; private set; }
 
@@ -35,7 +36,7 @@ namespace AuthenticationSample
 
         public async Task<bool> LoginAsync()
         {
-            await GetAccessTokenAsync();
+            _accessToken = await GetAccessTokenAsync();
             return true;
         }
 
@@ -50,17 +51,21 @@ namespace AuthenticationSample
             }
 
             UserInfo = null;
+            _accessToken = null;
 
             return Task.CompletedTask;
         }
 
-        public async Task<HttpClient> CreateHttpClientAsync()
+        public HttpClient CreateHttpClient()
         {
-            var accessToken = await GetAccessTokenAsync();
-
             var client = new HttpClient();
             client.BaseAddress = new Uri(Configuration.ApiUri);
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+
+            if (!string.IsNullOrEmpty(_accessToken))
+            {
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _accessToken);
+            }
+
             return client;
         }
 
