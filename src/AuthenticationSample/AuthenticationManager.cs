@@ -71,16 +71,9 @@ namespace AuthenticationSample
 
         private async Task<string> GetAccessTokenAsync()
         {
-            var authContext = new AuthenticationContext(_authority);
-            var tokens = authContext.TokenCache.ReadItems();//.FirstOrDefault(t => t.Authority == _authority && t.ClientId == _clientId && t.Resource == _resource);
-            foreach (var t in tokens)
-            {
-                if (t.Authority == _authority && t.ClientId == _clientId && t.Resource == _resource)
-                {
-                    return t.AccessToken;
-                }
-            }
             var uri = new Uri(_returnUri);
+
+            var authContext = new AuthenticationContext(_authority);
             var authResult = await authContext.AcquireTokenAsync(_resource, _clientId, uri, _parameters);
 
             UserInfo = authResult.UserInfo;
