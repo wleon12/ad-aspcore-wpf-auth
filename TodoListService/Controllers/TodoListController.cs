@@ -12,7 +12,7 @@ using TodoListService.Models;
 
 namespace TodoListService.Controllers
 {
-    [Authorize]
+    //[Authorize]
     [Route("api/[controller]")]
     public class TodoListController : Controller
     {
@@ -23,7 +23,9 @@ namespace TodoListService.Controllers
         public IEnumerable<TodoItem> Get()
         {
             string owner = (User.FindFirst(ClaimTypes.NameIdentifier))?.Value;
-            return todoStore.Where(t => t.Owner == owner).ToList();
+
+            var mylist = todoStore.Where(t => t.Owner == owner).ToList();
+            return mylist;
         }
 
         // POST api/values
