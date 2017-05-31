@@ -22,11 +22,9 @@ namespace AuthenticationSample.ViewModels
 
         #region Properties
 
-        public bool IsConnected
-        {
+        public bool IsConnected {
             get { return _isConnected; }
-            set
-            {
+            set {
                 if (_isConnected != value)
                 {
                     _isConnected = value;
@@ -35,11 +33,9 @@ namespace AuthenticationSample.ViewModels
             }
         }
 
-        public string FirstName
-        {
+        public string FirstName {
             get { return _firstName; }
-            set
-            {
+            set {
                 if (_firstName != value)
                 {
                     _firstName = value;
@@ -48,11 +44,9 @@ namespace AuthenticationSample.ViewModels
             }
         }
 
-        public string LastName
-        {
+        public string LastName {
             get { return _lastName; }
-            set
-            {
+            set {
                 if (_lastName != value)
                 {
                     _lastName = value;
@@ -61,11 +55,9 @@ namespace AuthenticationSample.ViewModels
             }
         }
 
-        public string Email
-        {
+        public string Email {
             get { return _email; }
-            set
-            {
+            set {
                 if (_email != value)
                 {
                     _email = value;
@@ -74,11 +66,9 @@ namespace AuthenticationSample.ViewModels
             }
         }
 
-        public string ApiResponse
-        {
+        public string ApiResponse {
             get { return _apiResponse; }
-            set
-            {
+            set {
                 if (_apiResponse != value)
                 {
                     _apiResponse = value;
@@ -121,7 +111,9 @@ namespace AuthenticationSample.ViewModels
         public async Task QueryApiAsync()
         {
             var httpClient = _authenticationManager.CreateHttpClient();
-            var response = await httpClient.GetAsync(new Uri("values", UriKind.Relative));
+            var something = new Uri("values", UriKind.Relative);
+            //var response = await httpClient.GetAsync(something);
+            var response = await httpClient.GetAsync(new Uri("https://mosad.azurewebsites.net/api/values"));
 
             if (response.IsSuccessStatusCode)
             {
